@@ -18,7 +18,9 @@ any = int(input("Quin any vas néixer?\n"))
 while any > datetime.now().year:
     any = int(input("Torna a introduir el any:\n"))
 
-if any <= datetime.now().year - 18 and mes <= datetime.now().month and dia <= datetime.now().day:
+if any < datetime.now().year - 18:
+    print("Ets major d'edat")
+elif mes <= datetime.now().month and dia <= datetime.now().day:
     print("Ets major d'edat")
 else:
     print("Ets menor d'edat")
