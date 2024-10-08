@@ -1,9 +1,18 @@
-# Grup 3: Jiajun, Ian, Miguel, Adria
-# Data: 25 d'octubre de 2024
-# Professor: Javier Amaya
-# Descripció:
+'''
+Grup 3: Jiajun, Ian, Miguel, Adria
+Data: 25 d'octubre de 2024
+Professor: Javier Amaya
+Asignatura: ASIXcB MDS TA03
+Descripció: llegueix les dades XML obtingudes per un fitxer i mostria per pantalla la informació obtinguda.
+'''
 
 import xml.etree.ElementTree as ET
+
+# Códigos ANSI para colores
+RESET = "\033[0m"  # Restablecer color
+BLUE = "\033[94m"  # Color azul
+GREEN = "\033[92m"  # Color verde
+RED = "\033[91m"  # Color rojo
 
 nom_arxiu = 'incidencies.xml'
 
@@ -24,12 +33,19 @@ def procesament_dades(nom_arxiu):
     for elem in arrel.iter():
         # Mostrar el nom de l'etiqueta i el seu text
         text = elem.text.strip() if elem.text else 'N/A'
-        print(f"{netejar_etiqueta(elem.tag)}: {text}")
+        etiqueta_neta = netejar_etiqueta(elem.tag)
+
+        # Formatejar la sortida amb colors
+        print(f"{BLUE}[ETIQUETA]: {RESET}{etiqueta_neta}")
+        print(f"{GREEN}[TEXT]: {RESET}{text}")
+
         # Mostrar els atributs si en té
         if elem.attrib:
             atributs_netejats = netejar_atributs(elem.attrib)
-            print("  Atributs:", atributs_netejats)
+            print(f"{RED}[ATRIBUTS]: {RESET}{atributs_netejats}")
+
         print('-' * 40)  # Separador per a cada element
 
 
+# Cridar la funció per mostrar les dades
 procesament_dades(nom_arxiu)
