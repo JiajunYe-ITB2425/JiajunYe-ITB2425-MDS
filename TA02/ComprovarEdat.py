@@ -20,7 +20,7 @@ while any > datetime.now().year:
 
 if any < datetime.now().year - 18:
     print("Ets major d'edat")
-elif mes <= datetime.now().month and dia <= datetime.now().day:
+elif mes <= datetime.now().month and dia <= datetime.now().day and any == datetime.now().year - 18:
     print("Ets major d'edat")
 else:
     print("Ets menor d'edat")
